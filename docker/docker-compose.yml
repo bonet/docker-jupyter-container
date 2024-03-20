@@ -3,9 +3,16 @@ services:
     dockerjupytercontainer:
         image: "dockerjupyter:1.0"
         container_name: "docker-jupyter-lab"
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: all
+                          capabilities: [gpu]
         ports:
           - 8888:8888
           - 6006:6006
         volumes:
-            - ..:/opt/service/notebooks
+            - ../notebooks:/opt/service/notebooks
         command: ["jupyter-lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port=8888", --NotebookApp.password='', "--NotebookApp.token=''"]

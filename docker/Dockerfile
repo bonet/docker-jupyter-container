@@ -1,9 +1,8 @@
 FROM tensorflow/tensorflow:2.16.1-gpu-jupyter
 
-ENV PROJECT="/opt/service"
+ENV PROJECT="/opt/service/notebooks"
 RUN mkdir -p ${PROJECT}
 WORKDIR ${PROJECT}
-RUN mkdir -p ${PROJECT}/notebooks
 
 COPY docker/requirements.txt ${PROJECT}
 
