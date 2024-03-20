@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec $1 tensorboard --bind_all --logdir /opt/service/notebooks/$2 --port 6006
+docker exec docker-jupyter-lab tensorboard --bind_all --logdir /opt/service/notebooks/$1 --port 6006
